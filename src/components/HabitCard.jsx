@@ -38,7 +38,7 @@ export default class HabitCard extends Component {
         if (h.habit === habit) {
           return { habit, dayCount: 0};
         };
-        return { habit, dayCount: h.dayCount }
+        return { habit: h.habit, dayCount: h.dayCount }
       });
 
       localStorage.setItem('habitList', JSON.stringify(updatedHabitList));

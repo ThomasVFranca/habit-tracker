@@ -16,30 +16,33 @@ code {
 /* ---------------------------- header --------------------------- */
 header {
   text-align: center;
-  border: 1px solid black;
+  /* border: 0px solid black; */
   width: 100%;
 }
 
 /* ----------------------------- habit-forms -------------------------- */
 
 .habit-forms {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 5px;
-  box-shadow: 2px 2px 5px grey;
-  width: 500px;
-  margin: 12px auto;
+  /* box-shadow: 2px 2px 5px grey; */
+  width: 501px;
+  margin: 25px auto;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
 }
 
 .habit-input {
-  width: 200px;
+  width: 380px;
   margin: auto;
+  border-radius: 2px;
+  border: 2px solid silver;
 }
 
 .add-habit-button {
   margin: auto;
+  border: 2px solid silver;
 }
 
 /* ---------------------------- habit-card --------------------------- */
@@ -53,7 +56,7 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 .habit-title {
@@ -68,6 +71,7 @@ header {
   border: 1px solid black;
   height: auto;
   width: 154px;
+  border-radius: 4px;
 }
 
 .day-box {
@@ -75,7 +79,7 @@ header {
   width: 20px;
   height: 20px;
   border: 1px solid black;
-  /* border-collapse: collapse; */
+  border-radius: 2px;
 }
 
 .done-day {
@@ -98,10 +102,17 @@ header {
 /* ---------------------------- footer --------------------------- */
 
 footer {
-  border: 1px solid black;
-  text-align: center;
-  position: fixed;
-  bottom: 0px;
+  display: flex;
+  flex-flow: row nowrap;
+  /* border: 1px solid black; */
   height: 100px;
-  width: 100%;
+  width: auto;
+  bottom: 0px;
+}
+
+a {
+  border: 1px solid black;
+  margin: auto;
+  text-align: center;
+  position: relative;
 }
