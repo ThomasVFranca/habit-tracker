@@ -2,13 +2,17 @@ import React, { useEffect, useState } from 'react'
 import HabitCard from './components/HabitCard'
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Pomodoro from './components/Pomodoro';
+import $ from 'jquery';
+import "jquery-ui-dist/jquery-ui";
 
 export default function App() {
   const [habitList, setHabitList] = useState([]);
   const [habitInput, setHabitInput] = useState('');
+  const [showPomo, setShowPomo] = useState(false);
 
   useEffect(() => {
-    const recoveredHabitList = localStorage.getItem('habitList');
+    const recoveredHabitList = localStorage?.getItem('habitList');
     recoveredHabitList !== null && setHabitList(JSON.parse(recoveredHabitList));
   }, [])
 
@@ -18,21 +22,30 @@ export default function App() {
 
   const addHabit = (event) => {
     event.preventDefault();
+
     setHabitList([...habitList, {
       habit: habitInput, 
       dayCount: 0,
     }]);
+
     localStorage.setItem('habitList', JSON.stringify([...habitList, {
       habit: habitInput,
       dayCount: 0,
     }]));
+
     setHabitInput('');
   }
+  
+  useEffect(() => {
+    $('.habit-card').effect('slide', {}, 800);
+    // setTimeout(() => $('.day-box').effect('highlight', {}, 200), 800);
+  }, [])
 
   return (
     <div>
-      <Header />
-      <form 
+      <Header setShowPomo={ setShowPomo }/>
+      <form
+        id="habit-forms"
         className="habit-forms"
         onSubmit={ addHabit }
       >
@@ -50,9 +63,8 @@ export default function App() {
           Adicionar Hábito
         </button>
       </form>
-
-      {
-        habitList.map(({ habit, dayCount }, index) => {
+      <div className="habit-card-container">
+        { habitList.map(({ habit, dayCount }, index) => {
           return (
             <HabitCard 
               habit={ habit }
@@ -61,8 +73,11 @@ export default function App() {
               setHabitList={ setHabitList }
               dayCount={ dayCount }
             />);
-        })
-      }
+        })}
+      </div>
+
+      { showPomo && <Pomodoro /> }
+      <div id="bottom-padding" />
       <Footer />
     </div>
   )
