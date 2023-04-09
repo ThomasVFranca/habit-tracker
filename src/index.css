@@ -144,7 +144,7 @@ header > nav > a {
   font-size: 12px;
   height: 16px;
   width: 22px;
-  border: 1px solid darkolivegreen;
+  border: 1px dashed darkolivegreen;
   border-radius: 3px;
   border-radius: 12px 0px;
   margin: calc(1.1px);
@@ -154,6 +154,7 @@ header > nav > a {
   /* background-color: rgb(15, 136, 15); */
   /* background-color: rgb(2, 54, 2); */
   background-image: linear-gradient(green, rgb(2, 54, 2));
+  border: 1px solid darkolivegreen;
   color: whitesmoke;
   font-size: small;
 }
