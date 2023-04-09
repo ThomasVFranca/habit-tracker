@@ -103,7 +103,8 @@ header > nav > a {
   border-radius: 3px;
   padding: 10px 0px;
   width: 500px;
-  height: 600px;
+  min-height: 300px;
+  max-height: 600px;
   overflow: auto;
 }
 
@@ -187,9 +188,6 @@ button:hover, a:hover {
 }
 
 .habit-button > img {
-  /* background-image: url(./images/icons8-discord.svg);
-  background-repeat: no-repeat;
-  background-size: contain; */
   width: 13px;
 }
 
