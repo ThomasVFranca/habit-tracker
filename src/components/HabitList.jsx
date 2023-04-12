@@ -10,7 +10,7 @@ export default function HabitList({ habitList, setHabitList }) {
     recoveredHabitList !== null && setHabitList(JSON.parse(recoveredHabitList));
     $('.habit-card').effect('slide', {}, 1000);
     $(".habit-card-container" ).sortable();
-  }, [])
+  }, [setHabitList])
 
   return (
     <div className="habit-card-container" draggable="false">
