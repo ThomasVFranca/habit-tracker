@@ -8,20 +8,22 @@ export default function Pomodoro() {
   const startPomo = () => {
     setInterval(setSeconds(seconds), 1000);
   };  
-  
+
   // useEffect(() => startPomo(), [seconds])
+  const runEffect = () => {
+    $(
+      $( ".pomo-container" ).show( 'blind', {}, 500)
+    )
+  }
   
   useEffect(() => {
     $(".pomo-container" ).draggable(); 
-
-    // const options = { to: '#habit-forms', className: 'habit-forms' };
-    // $('.pomo-container').effect('transfer', options, 800);
   }, [])
 
   return (
     <div className="pomo-container">
-        <h3>Pomodoro 🍎</h3>
-        <p>{ seconds }</p>
+        <h3>Pomodoro</h3>
+        <p>{ '25:00' /* seconds */ }</p>
         <button onClick={ startPomo }>Iniciar</button>
     </div>
   )

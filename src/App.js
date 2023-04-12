@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import HabitCard from './components/HabitCard'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Pomodoro from './components/Pomodoro';
-import $ from 'jquery';
-import "jquery-ui-dist/jquery-ui";
+// import $ from 'jquery';
+// import "jquery-ui-dist/jquery-ui";
+import TodoList from './components/TodoList';
+import HabitList from './components/HabitList';
 
-export default function App() {
+export default function App() { 
   const [habitList, setHabitList] = useState([]);
   const [habitInput, setHabitInput] = useState('');
   const [showPomo, setShowPomo] = useState(false);
+  const [showTaskList, setShowTaskList] = useState(false);
 
   useEffect(() => {
     const recoveredHabitList = localStorage?.getItem('habitList');
@@ -23,27 +25,21 @@ export default function App() {
   const addHabit = (event) => {
     event.preventDefault();
 
-    setHabitList([...habitList, {
-      habit: habitInput, 
-      dayCount: 0,
-    }]);
-
-    localStorage.setItem('habitList', JSON.stringify([...habitList, {
+    let newHabit = {
       habit: habitInput,
       dayCount: 0,
-    }]));
+    }
+
+    setHabitList([...habitList, newHabit]);
+
+    localStorage.setItem('habitList', JSON.stringify([...habitList, newHabit]));
 
     setHabitInput('');
   }
-  
-  useEffect(() => {
-    $('.habit-card').effect('slide', {}, 800);
-    // setTimeout(() => $('.day-box').effect('highlight', {}, 200), 800);
-  }, [])
 
   return (
     <div>
-      <Header setShowPomo={ setShowPomo }/>
+      <Header setShowPomo={ setShowPomo } setShowTaskList={ setShowTaskList } />
       <form
         id="habit-forms"
         className="habit-forms"
@@ -63,20 +59,12 @@ export default function App() {
           Adicionar Hábito
         </button>
       </form>
-      <div className="habit-card-container">
-        { habitList.map(({ habit, dayCount }, index) => {
-          return (
-            <HabitCard 
-              habit={ habit }
-              key={ index }
-              habitList={ habitList }
-              setHabitList={ setHabitList }
-              dayCount={ dayCount }
-            />);
-        })}
-      </div>
+
+
+      <HabitList habitList={ habitList } setHabitList={ setHabitList } />
 
       { showPomo && <Pomodoro /> }
+      { showTaskList && <TodoList /> }
       <div id="bottom-padding" />
       <Footer />
     </div>

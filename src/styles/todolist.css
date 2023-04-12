@@ -1,0 +1,118 @@
+h3 {
+    text-align: center;
+    margin: 5px auto 10px;
+}
+
+.todo-card-container {
+    background-color: aliceblue;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 1px 1px 5px grey;
+    padding: 10px 0px 8px;
+    width: 250px;
+    height: 300px;
+    overflow: auto;
+    position: absolute;
+    bottom: 475px;
+    left: 30px;
+    user-select: none;
+}
+
+.todo-card-container > hr {
+    border: 1px solid silver;
+}
+
+.todo-card {
+    border: 1px solid black;
+    box-shadow: 1px 1px 3px grey;
+    width: 220px;
+    height: 28px;
+    margin: 0px auto 4px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 1px;
+    user-select: none;
+    background-color: aliceblue;
+}
+
+.todo-card > input  {
+    border: 1px solid darkolivegreen;
+    /* box-shadow: 1px 1px 2px silver; */
+    width: 16px;
+    height: 16px;
+    margin: auto 13px auto 5px;
+    border-radius: 3px;
+    background-color: whitesmoke;
+}
+
+.todo-card > p {
+    /* border: 1px solid darkolivegreen; */
+    /* box-shadow: 1px 1px 2px silver; */
+    width: 175px;
+    font-size: 15px;
+    height: 16px;
+    margin: auto;
+}
+
+.todolist-header {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    width: 220px;
+    height: 32px;
+    margin: 0px auto 10px;
+}
+
+.todolist-header > button {
+    margin: auto 0px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px ;
+    border: 1px solid darkolivegreen;
+    background-color: aliceblue;
+    color: whitesmoke;
+}
+
+
+.todolist-header > button:hover {
+    background-color: rgb(219, 228, 238);
+    border-radius: 5px;
+}
+.todolist-header > button > img {
+    width: 15px;
+    height: 15px;
+    margin: 0px;
+    position: static;
+}
+
+.todo-card-box {
+    border-radius: calc(2.5px);
+    border-top: 0px;
+    /* border: 1px solid black; */
+    /* border-top: 1px solid black; */
+    /* border-left: 1px solid black; */
+    /* border-right: 1px solid black; */
+    max-width: 225px;
+    margin: auto;
+    height: 230px;
+    overflow-y: scroll;
+    padding: 5px;
+    /* box-shadow: 1px 1px 3px grey; */
+}
+
+.todo-card > form > input {
+    border-radius: calc(2.5px);
+    /* background-color: whitesmoke; */
+    width: 170px;
+    height: 14px;
+    border: 1px solid silver;
+    /* box-shadow: 1px 1px 3px grey; */
+    margin: auto 0px 1px;
+}

@@ -77,7 +77,6 @@ header > nav > a {
   margin: auto;
   border-radius: 3px;
   border: 1px solid darkgrey;
-  box-shadow: 1px 1px 2px darkgrey;
 }
 
 .add-habit-button {
@@ -119,6 +118,7 @@ header > nav > a {
   align-items: center;
   border-radius: 3px;
   user-select: none;
+  background-color: aliceblue;
 }
 
 .habit-title {
@@ -166,7 +166,6 @@ header > nav > a {
 
 .habit-button {
   border-radius: 3px ;
-  font-size: 12px;
   border: 1px solid darkolivegreen;
   background-color: aliceblue;
   /* background-image: linear-gradient(darkgreen, rgb(2, 54, 2)); */
@@ -197,17 +196,18 @@ button:hover, a:hover {
   user-select: none;
   border: 1px solid black;
   border-radius: 3px;
-  width: 280px;
-  height: 150px;
+  width: 250px;
+  height: 130px;
   margin: 20px auto 0px;
   display: flex;
   flex-flow: column nowrap;
+  justify-content: space-evenly;
   align-items: center;
-  box-shadow: 5px 5px 5px silver;
+  box-shadow: 3px 3px 5px silver;
   padding-bottom: 5px;
   position: absolute;
-  bottom: 500px;
-  left: 25px;
+  bottom: 300px;
+  left: 30px;
 }
 
 .pomo-container > button {

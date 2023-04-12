@@ -1,37 +1,50 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import 'jquery-ui'; 
 
-export default function NavBar({ setShowPomo }) {
+export default function NavBar({ setShowPomo, setShowTaskList}) {
   const [localShowPomo, setLocalShowPomo] = useState(false);
-  
+  const [localShowTaskList, setLocalShowTaskList] = useState(false);
+
   const shouldShowPomo = (event) => {
     event.preventDefault();
-    let options = {};
 
     if (localShowPomo) {
       setShowPomo(false);
       setLocalShowPomo(false);
       
-      options = { to: '#pomo-activate-btn', className: 'pomo-activate-btn' };
-      
+      let options = { to: '#pomo-activate-btn', className: 'pomo-activate-btn' };
       $('.pomo-container').effect('transfer', options, 680);
     } else {
       setShowPomo(true);
-      setLocalShowPomo(true);
-      
-      // options = { to: '#habit-forms', className: 'habit-forms' };
-
-      // $('.pomo-container').effect('transfer', options, 800);
+      setLocalShowPomo(true); 
     }
+  }
 
+  const shouldShowTaskList = (event) => {
+    event.preventDefault();
+
+    if (localShowTaskList) {
+      setShowTaskList(false);
+      setLocalShowTaskList(false);
+      
+      let options = { to: '#tasklist-activate-btn', className: 'tasklist-activate-btn' };
+      $('.todo-card-container').effect('transfer', options, 680);
+    } else {
+      setShowTaskList(true);
+      setLocalShowTaskList(true);
+    }
   }
   
   return (
     <nav>
-      <Link to='/habits'>Hábitos</Link>
-      <Link to='/tasks'>Tarefas</Link>
+      <Link onClick={ shouldShowPomo }>Hábitos</Link>
+      <Link
+        id='tasklist-activate-btn'
+        className='tasklist-activate-btn'
+        onClick={ shouldShowTaskList }
+      >Tarefas</Link>
       <Link 
         id='pomo-activate-btn'
         className='pomo-activate-btn'
