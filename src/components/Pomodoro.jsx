@@ -10,11 +10,11 @@ export default function Pomodoro() {
   };  
 
   // useEffect(() => startPomo(), [seconds])
-  const runEffect = () => {
-    $(
-      $( ".pomo-container" ).show( 'blind', {}, 500)
-    )
-  }
+  // const runEffect = () => {
+  //   $(
+  //     $( ".pomo-container" ).show( 'blind', {}, 500)
+  //   )
+  // }
   
   useEffect(() => {
     $(".pomo-container" ).draggable(); 

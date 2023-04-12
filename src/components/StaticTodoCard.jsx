@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 // import $ from 'jquery';
 
 export default function StaticTodoCard({ todo }) {
-  const [inputValue, setInputValue] = useState('');
+  // const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     // $( "input" ).checkboxradio();
