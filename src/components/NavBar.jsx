@@ -39,7 +39,7 @@ export default function NavBar({ setShowPomo, setShowTaskList}) {
   
   return (
     <nav>
-      <Link onClick={ shouldShowPomo }>Hábitos</Link>
+      <Link onClick={ (e) => e.preventDefault() }>Hábitos</Link>
       <Link
         id='tasklist-activate-btn'
         className='tasklist-activate-btn'

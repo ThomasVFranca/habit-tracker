@@ -3,12 +3,18 @@ import { days } from '../helpers/dayList';
 import addLogo from '../images/add-plus-circle-svgrepo-com.svg';
 import restartLogo from '../images/power-cycle-svgrepo-com.svg';
 import removeLogo from '../images/remove-circle-svgrepo-com.svg';
+// import $ from 'jquery';
 
 export default class HabitCard extends Component {
   state = {
     dayCount: this.props.dayCount,
     workHabit: '',
   }
+
+  componentDidMount() {
+    // $( ".habit-card" ).draggable({ axis: "y" });
+  };
+
 
   addDay = () => {
     const { habit } = this.props;

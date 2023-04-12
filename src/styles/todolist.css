@@ -75,7 +75,7 @@ h3 {
     justify-content: center;
     align-items: center;
     border-radius: 3px ;
-    border: 1px solid darkolivegreen;
+    border: 1px solid silver;    
     background-color: aliceblue;
     color: whitesmoke;
 }
@@ -86,8 +86,8 @@ h3 {
     border-radius: 5px;
 }
 .todolist-header > button > img {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
     margin: 0px;
     position: static;
 }
