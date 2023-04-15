@@ -1,43 +1,22 @@
-import React, { useEffect, useState } from 'react';
-// import $ from 'jquery';
+import React from 'react';
+import removeIcon from '../images/remove-circle-svgrepo-com.svg';
 
-export default function TodoCard({ todoList, setTodoList }) {
-  const [showInput, setShowInput] = useState(true);
-  const [inputValue, setInputValue] = useState('');
-
-  useEffect(() => {
-    // $( "input" ).checkboxradio();
-  }, []);
-
-  const handleInput = ({ target: { value }}) => {
-    setInputValue(value);
-  }
-
-  const setTodo = (event) => {
-    event.preventDefault();
-    setShowInput(false);
-
-    const localstorageTodoList = JSON.parse(localStorage.getItem('todoList'));
-    
-    localStorage.setItem(
-      'todoList', JSON.stringify([...localstorageTodoList, inputValue])
-    );
-
-    setTodoList([...todoList, inputValue]);
-  }
-
+export default function TodoCard({ todo, index, removeTodo }) {
   return (
     <div className="todo-card">
-      <input type="checkbox" />
-      { showInput
-      ?  (<form onSubmit={ setTodo }>
-            <input 
-              type="text" 
-              onChange={ handleInput }
-              autoFocus
-            />
-          </form>)
-      :  (<p>{ inputValue }</p>) }
+      <input className="todo-checkbox" type="checkbox" />
+      <p className="todo-text">{ todo }</p>
+      <button
+        id={ todo }
+        className="todo-delete-btn"
+        onClick={ removeTodo }
+      >
+        <img
+          id={ todo }
+          src={ removeIcon }
+          alt="remove-btn-icon" 
+        />
+      </button>
     </div>
   )
 }

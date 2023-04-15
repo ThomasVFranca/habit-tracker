@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Pomodoro from './components/Pomodoro';
-// import $ from 'jquery';
-// import "jquery-ui-dist/jquery-ui";
 import TodoList from './components/TodoList';
 import HabitList from './components/HabitList';
+import Lofibox from './components/LofiBox';
 
 export default function App() { 
   const [habitList, setHabitList] = useState([]);
   const [habitInput, setHabitInput] = useState('');
   const [showPomo, setShowPomo] = useState(false);
   const [showTaskList, setShowTaskList] = useState(false);
+  const [showLofiBox, setShowLofiBox] = useState(false);
 
   useEffect(() => {
     const recoveredHabitList = localStorage?.getItem('habitList');
@@ -38,8 +38,12 @@ export default function App() {
   }
 
   return (
-    <div>
-      <Header setShowPomo={ setShowPomo } setShowTaskList={ setShowTaskList } />
+    <div id="aaa">
+      <Header 
+        setShowPomo={ setShowPomo }
+        setShowTaskList={ setShowTaskList }
+        setShowLofiBox={ setShowLofiBox }
+      />
       <form
         id="habit-forms"
         className="habit-forms"
@@ -65,6 +69,8 @@ export default function App() {
 
       { showPomo && <Pomodoro /> }
       { showTaskList && <TodoList /> }
+      { showLofiBox && <Lofibox /> }
+
       <div id="bottom-padding" />
       <Footer />
     </div>

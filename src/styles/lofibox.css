@@ -1,0 +1,33 @@
+.lofi-box {
+    width: 400px;
+    height: 300px;
+    border: 1px solid black;
+    display: flex;
+    flex-flow: column nowrap;
+    border-radius: 3px;
+    background-color: aliceblue;
+    position: absolute;
+    bottom: 300px;
+    right: 20px;
+    min-width: 280px;
+    min-height: 250px;
+    box-shadow: 2px 2px 3px silver;
+}
+
+.lofi-box > h3 {
+    margin: 15px auto;
+}
+
+.lofi-box > hr {
+    margin: 0px;
+    width: calc(99.5%);
+    border: 1px solid silver;
+}
+
+.lofi-box > iframe {
+    min-width: 250px;
+    width: auto;
+    height: 100%;
+    margin: 15px 15px;
+    border-radius: calc(2.8px);
+}

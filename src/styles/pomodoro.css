@@ -1,0 +1,103 @@
+
+/* ---------------------------------- pomo-container ---------------------------------- */
+
+.pomo-container {
+    background-color: aliceblue;
+    user-select: none;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 250px;
+    height: 140px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    position: absolute;
+    bottom: 300px;
+    left: 20px;
+    box-shadow: 2px 2px 3px silver;
+    bottom: 230px;
+  }
+
+  .pomo-container > h3 {
+    width: 99%;
+    border-width: 1px;
+    /* background-color: aqua; */
+    margin: auto;
+  }
+
+  .pomo-container > hr {
+    width: 99%;
+    border-width: 1px;
+    margin: 0px;
+    border: 1px solid silver;
+  }
+
+/* ---------------------------------- pomo-buttons ---------------------------------- */
+
+  .pomo-btn-container {
+    /* background-color: red; */
+    width: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0px 0px 10px;
+    border: 1px solid rgb(140, 168, 190);
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px silver;
+    height: 22px;
+  }
+  
+  .pomo-container > div > button {
+    background-color: aliceblue;
+    color: black;
+    border-radius: 100px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    border: 0px;
+  }
+  
+  .pomo-container > div > button > img {
+    background-color: aliceblue;
+    color: black;
+    width: 16px;
+    height: 16px;
+    margin: 0px;
+  }
+
+  .pomo-container > div > button > img:hover {
+    cursor: pointer;
+    background-color: rgb(219, 228, 238);
+    border-radius: 5px;
+  }
+
+  .pomo-container > div > button:last-child {
+    background-color: aliceblue;
+    color: black;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 16px;
+    height: 16px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pomo-container > div > button:last-child > img {
+    background-color: aliceblue;
+    color: black;
+    border-radius: 20px;
+    width: 11px;
+    height: 11px;
+  }
+
+  .pomo-container > div > button:last-child > img:hover {
+    cursor: pointer;
+    background-color: rgb(219, 228, 238);
+    border-radius: 5px;
+  }

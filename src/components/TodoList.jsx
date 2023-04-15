@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/todolist.css';
 import $ from 'jquery';
-import { useEffect } from 'react';
+import TodoCardAdder from './TodoCardAdder';
 import TodoCard from './TodoCard';
-import StaticTodoCard from './StaticTodoCard';
 const addTaskIcon = require('../images/icons8-add-new-50.png');
 
 export default function TodoList() {
-  const [todoList, setTodoList] = useState([]);
-  const [localstorageTodoList, setLocalStorageTodoList] = useState([]);
+  const [oldTodoList, setOldTodoList] = useState([]);
+  const [newTodoList, setNewTodoList] = useState([]);
+  const [showCardAdder, setShowCardAdder] = useState(false);
 
   useEffect(() => {
     $(".todo-card-container" ).draggable();
@@ -19,24 +19,30 @@ export default function TodoList() {
     if (recoveredTodoList === null) {
       localStorage.setItem('todoList', JSON.stringify([]));
     } else {
-      setTodoList(JSON.parse(recoveredTodoList))
-      localStorage.setItem('todoList', recoveredTodoList)
-      setLocalStorageTodoList(JSON.parse(recoveredTodoList));
+      setOldTodoList(JSON.parse(recoveredTodoList));
+      
+      localStorage.setItem('todoList', recoveredTodoList);
     }
 
   }, [])
 
-  useEffect(() => console.log(localstorageTodoList), [localstorageTodoList])
-
   const addTodo = () => {
-    setTodoList([...todoList, 'a']);
+    setNewTodoList([...newTodoList, '']);
+    setShowCardAdder(true);
+  }
+
+  const removeTodo = ({ target: { id }}) => {
+    let filteredOldTodoList = oldTodoList.filter((t) => t !== id);
+    setOldTodoList(filteredOldTodoList);
+
+    localStorage.setItem('todoList', JSON.stringify(filteredOldTodoList));
   }
 
   return (
     <div className="todo-card-container">
       <div className="todolist-header">
         <h3>Lista de tarefas</h3>
-        <button 
+        <button
           className="add-todo-button"
           onClick={ addTodo }
         >
@@ -47,17 +53,25 @@ export default function TodoList() {
       <hr />
 
       <div className="todo-card-box">
-        { localstorageTodoList.map((todo) => (
-          <StaticTodoCard todo={ todo } />
-          )) }
-
-        { todoList !== null
-        && todoList.map((todo) => (
-          <TodoCard 
-            todoList={ todoList }
-            setTodoList={ setTodoList }
-          />
-          )) }
+        { oldTodoList !== null && (
+            oldTodoList.map((todo, index) => (
+              <TodoCard 
+                key={ `${todo} + ${index}` }
+                index={ index }
+                todo={ todo }
+                removeTodo={ removeTodo }
+              />
+            ))
+        )}
+        { showCardAdder &&
+            <TodoCardAdder
+              oldTodoList={ oldTodoList }
+              setOldTodoList={ setOldTodoList }
+              newTodoList={ newTodoList }
+              setNewTodoList={ setNewTodoList }
+              setShowCardAdder={ setShowCardAdder }
+            />
+        }
       </div>
     </div>
     )

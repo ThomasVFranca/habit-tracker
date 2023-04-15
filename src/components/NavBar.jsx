@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import 'jquery-ui'; 
 
-export default function NavBar({ setShowPomo, setShowTaskList}) {
+export default function NavBar({ setShowPomo, setShowTaskList, setShowLofiBox}) {
   const [localShowPomo, setLocalShowPomo] = useState(false);
   const [localShowTaskList, setLocalShowTaskList] = useState(false);
+  const [localShowLofiBox, setLocalShowLofiBox] = useState(false);
 
   const shouldShowPomo = (event) => {
     event.preventDefault();
@@ -36,22 +37,48 @@ export default function NavBar({ setShowPomo, setShowTaskList}) {
       setLocalShowTaskList(true);
     }
   }
+
+  const shouldShowLofiBox = (event) => {
+    event.preventDefault();
+
+    if (localShowLofiBox) {
+      setShowLofiBox(false);
+      setLocalShowLofiBox(false);
+      
+      let options = { to: '#lofi-activate-btn', className: 'lofi-activate-btn' };
+      $('.lofi-box').effect('transfer', options, 680);
+    } else {
+      setShowLofiBox(true);
+      setLocalShowLofiBox(true);
+    }
+  }
   
   return (
     <nav>
-      <Link onClick={ (e) => e.preventDefault() }>Hábitos</Link>
-      <Link
+      <button
+        to="/"
         id='tasklist-activate-btn'
         className='tasklist-activate-btn'
         onClick={ shouldShowTaskList }
-      >Tarefas</Link>
-      <Link 
+      >
+        Tarefas
+      </button>
+      <button 
+        to="/"
+        id='lofi-activate-btn'
+        className='lofi-activate-btn'
+        onClick={ shouldShowLofiBox }
+      >
+        Lofi  
+      </button>
+      <button 
         id='pomo-activate-btn'
+        to="/"
         className='pomo-activate-btn'
         onClick={ shouldShowPomo }
       >
         Pomodoro
-      </Link>
+      </button>
     </nav>
   )
 }
