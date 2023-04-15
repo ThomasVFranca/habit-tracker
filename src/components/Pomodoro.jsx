@@ -6,7 +6,7 @@ import resetPomoIcon from '../images/icons8-restart.svg';
 
 export default function Pomodoro() {
   let [seconds, setSeconds] = useState(1500);
-  let [minutes, setMinutes] = useState(25);
+  // let [minutes, setMinutes] = useState(25);
   
   let timerId = useRef();
   let secondCount = useRef();
@@ -20,9 +20,9 @@ export default function Pomodoro() {
       setSeconds(prev => prev - 1);
       secondCount.current -= 1;
 
-      if (secondCount % 60 === 0) {
-        setMinutes(prev => prev - 1);
-      }
+      // if (secondCount % 60 === 0) {
+      //   setMinutes(prev => prev - 1);
+      // }
     }, 1000)
   }
 
