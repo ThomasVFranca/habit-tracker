@@ -1,31 +1,34 @@
 .lofi-box {
-    width: 400px;
-    height: 300px;
+    width: 300px;
+    height: 230px;
     border: 1px solid black;
     display: flex;
     flex-flow: column nowrap;
     border-radius: 3px;
     background-color: aliceblue;
-    position: absolute;
-    bottom: 300px;
-    right: 20px;
-    min-width: 280px;
-    min-height: 250px;
+    position: relative;
+    min-width: 250px;
+    min-height: 200px;
     box-shadow: 2px 2px 3px silver;
+    user-select: none;
+    margin: 0px;
+    max-width: 500px;
+    max-height: 350px;
 }
 
 .lofi-box > h3 {
-    margin: 15px auto;
+    margin: 12px auto 11px;
 }
 
 .lofi-box > hr {
     margin: 0px;
     width: calc(99.5%);
-    border: 1px solid silver;
+    border-color: silver;
 }
 
 .lofi-box > iframe {
-    min-width: 250px;
+    min-width: 210px;
+    min-height: 120px;
     width: auto;
     height: 100%;
     margin: 15px 15px;

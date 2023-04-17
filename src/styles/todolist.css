@@ -11,9 +11,10 @@ h3 {
     flex-flow: row nowrap;
     justify-content: space-around;
     width: 220px;
-    height: 32px;
+    height: 26px;
     margin: 0px auto 10px;
 }
+
 
 .todolist-header > button {
     margin: auto 0px;
@@ -42,7 +43,7 @@ h3 {
 
 .todo-card-container {
     background-color: aliceblue;
-    margin: auto;
+    margin: 0px auto 5px;
     border: 1px solid black;
     border-radius: 3px;
     box-shadow: 2px 2px 3px silver;
@@ -50,15 +51,14 @@ h3 {
     width: 250px;
     height: 300px;
     overflow: auto;
-    position: absolute;
-    bottom: 475px;
-    left: 20px;
+    position: relative;
     user-select: none;
     overflow: unset;
 }
 
 .todo-card-container > hr {
-    border: 1px solid silver;
+    /* border: 1px solid silver; */
+    border-color: silver;
 }
 
 /* -------------------------------- todo-card ------------------------------- */

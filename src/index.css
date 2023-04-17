@@ -30,7 +30,8 @@ header {
 header > hr {
   width: calc(99.9%);
   /* border-top: 1px solid grey; */
-  border: 1px solid silver;
+  border-color: silver;
+  margin: 0px;
 }
 
 h1 {
@@ -40,7 +41,7 @@ h1 {
 header > nav {
   /* border: 1px solid black; */
   width: 300px;
-  margin: 0px auto 0px;
+  margin: 8px auto;
   display: flex;
 }
 
@@ -62,6 +63,40 @@ header > nav > button {
 header > nav > button:hover {
   cursor: pointer;
   border-radius: 5px;
+}
+
+/* ---------------------------- main --------------------------- */
+
+main {
+  display: flex;
+  margin: 0px auto;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: auto;
+  height: 800px;
+}
+
+main > div {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 0px;
+}
+
+#left {
+  padding: 10px 0px 210px;
+  width: 268px;
+}
+
+#center {
+  min-width: 506px;
+
+}
+
+#right {
+  padding: 10px 8px;
+  min-width: 304px;
+  max-width: 500px;
 }
 
 /* ---------------------------- footer --------------------------- */

@@ -24,7 +24,8 @@ export default function TodoList() {
       localStorage.setItem('todoList', recoveredTodoList);
     }
 
-  }, [])
+    console.log(oldTodoList);
+  }, [oldTodoList])
 
   const addTodo = () => {
     setNewTodoList([...newTodoList, '']);
@@ -53,7 +54,7 @@ export default function TodoList() {
       <hr />
 
       <div className="todo-card-box">
-        { oldTodoList !== null && (
+        { oldTodoList !== null && 
             oldTodoList.map((todo, index) => (
               <TodoCard 
                 key={ `${todo} + ${index}` }
@@ -61,8 +62,7 @@ export default function TodoList() {
                 todo={ todo }
                 removeTodo={ removeTodo }
               />
-            ))
-        )}
+            ))}
         { showCardAdder &&
             <TodoCardAdder
               oldTodoList={ oldTodoList }

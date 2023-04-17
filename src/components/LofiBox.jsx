@@ -13,11 +13,19 @@ function App() {
       <h3>Lofi Beats</h3>
       <hr />
       <iframe 
-      width="560" height="315" 
-      src="https://www.youtube.com/embed/jfKfPfyJRdk"
+      width="560" height="315"
+      src="https://www.youtube.com/embed/jfKfPfyJRdk?controls=0&autoplay=1"
       title="YouTube video player"
       frameborder="0" 
-      allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allow="
+        fullscreen;
+        accelerometer;
+        autoplay;
+        clipboard-write;
+        encrypted-media;
+        gyroscope;
+        picture-in-picture;
+        web-share" 
       allowfullscreen />
     </div>
   );

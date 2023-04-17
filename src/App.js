@@ -8,7 +8,6 @@ import Lofibox from './components/LofiBox';
 
 export default function App() { 
   const [habitList, setHabitList] = useState([]);
-  const [habitInput, setHabitInput] = useState('');
   const [showPomo, setShowPomo] = useState(false);
   const [showTaskList, setShowTaskList] = useState(false);
   const [showLofiBox, setShowLofiBox] = useState(false);
@@ -18,25 +17,6 @@ export default function App() {
     recoveredHabitList !== null && setHabitList(JSON.parse(recoveredHabitList));
   }, [])
 
-  const handleInput = ({ target: { value } }) => {
-    setHabitInput(value);
-  }
-
-  const addHabit = (event) => {
-    event.preventDefault();
-
-    let newHabit = {
-      habit: habitInput,
-      dayCount: 0,
-    }
-
-    setHabitList([...habitList, newHabit]);
-
-    localStorage.setItem('habitList', JSON.stringify([...habitList, newHabit]));
-
-    setHabitInput('');
-  }
-
   return (
     <div id="aaa">
       <Header 
@@ -44,32 +24,22 @@ export default function App() {
         setShowTaskList={ setShowTaskList }
         setShowLofiBox={ setShowLofiBox }
       />
-      <form
-        id="habit-forms"
-        className="habit-forms"
-        onSubmit={ addHabit }
-      >
-        <input 
-          name="habit-input"
-          type="text"
-          value={ habitInput }
-          className="habit-input"
-          onChange={ handleInput }
-        />
-        <button
-          onClick={ addHabit }
-          className="add-habit-button"
-        >
-          Adicionar Hábito
-        </button>
-      </form>
 
-
-      <HabitList habitList={ habitList } setHabitList={ setHabitList } />
-
-      { showPomo && <Pomodoro /> }
-      { showTaskList && <TodoList /> }
-      { showLofiBox && <Lofibox /> }
+    <main>
+      <div id="left">
+        { showTaskList && <TodoList /> }
+        { showPomo && <Pomodoro /> }
+      </div>    
+      <div id="center">
+        <HabitList 
+          habitList={ habitList }
+          setHabitList={ setHabitList }
+          />
+      </div>
+      <div id="right">
+        { showLofiBox && <Lofibox /> }
+      </div>
+    </main>
 
       <div id="bottom-padding" />
       <Footer />

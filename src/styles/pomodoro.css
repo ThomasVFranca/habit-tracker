@@ -13,25 +13,22 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 5px;
-    position: absolute;
-    bottom: 300px;
-    left: 20px;
+    position: relative;
     box-shadow: 2px 2px 3px silver;
-    bottom: 230px;
   }
 
   .pomo-container > h3 {
     width: 99%;
     border-width: 1px;
     /* background-color: aqua; */
-    margin: auto;
+    margin: 12px auto 6px;
   }
 
   .pomo-container > hr {
     width: 99%;
     border-width: 1px;
     margin: 0px;
-    border: 1px solid silver;
+    border-color: silver;
   }
 
 /* ---------------------------------- pomo-buttons ---------------------------------- */

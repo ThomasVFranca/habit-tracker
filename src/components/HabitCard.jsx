@@ -77,41 +77,38 @@ export default class HabitCard extends Component {
         { habit }
       </h4>
 
-    <div className="days-container">
-      {
-        days.map((day) => (
+      <div className="days-container">
+        { days.map((day) => (
           <div
             key={ day }
             className={`day-box ${day <= dayCount && 'done-day'}`}
           >
             { day }
           </div>
-        ))
-      }
-    </div>
+        ))}
+      </div>
 
-    <div className="habit-buttons-container">
-      <button 
-        className='restart-button habit-button'
-        onClick={ addDay }
-      >
-        <img src={ addLogo } alt='add-icon'/>
-      </button>
-      <button 
-        className='success-button habit-button'
-        onClick={ restartDays }
-      >
-        <img src={ restartLogo } alt='restart-icon'/>
-      </button>
-      <button
-        name={ habit }
-        className='delete-button habit-button'
-        onClick={ removeHabit }
-      >
-        <img src={ removeLogo } alt='remove-icon'/>
-      </button>
-    </div>
-    {/* <button id="button" onClick={ this.runEffect }>aaa</button> */}
+      <div className="habit-buttons-container">
+        <button 
+          className='restart-button habit-button'
+          onClick={ addDay }
+        >
+          <img src={ addLogo } alt='add-icon'/>
+        </button>
+        <button 
+          className='success-button habit-button'
+          onClick={ restartDays }
+        >
+          <img src={ restartLogo } alt='restart-icon'/>
+        </button>
+        <button
+          name={ habit }
+          className='delete-button habit-button'
+          onClick={ removeHabit }
+        >
+          <img src={ removeLogo } alt='remove-icon'/>
+        </button>
+      </div>
     </div>
   </div>
   )
