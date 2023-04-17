@@ -22,6 +22,7 @@
     border-width: 1px;
     /* background-color: aqua; */
     margin: 12px auto 6px;
+    text-align: center;
   }
 
   .pomo-container > hr {
