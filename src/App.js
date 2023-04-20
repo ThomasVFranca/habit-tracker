@@ -25,24 +25,24 @@ export default function App() {
         setShowLofiBox={ setShowLofiBox }
       />
 
-    <main>
-      <div id="left">
-        { showTaskList && <TodoList /> }
-        { showPomo && <Pomodoro /> }
-      </div>    
-      <div id="center">
-        <HabitList 
-          habitList={ habitList }
-          setHabitList={ setHabitList }
-          />
-      </div>
-      <div id="right">
-        { showLofiBox && <Lofibox /> }
-      </div>
-    </main>
+      <main>
+        <div id="left">
+          { showTaskList && <TodoList /> }
+          { showPomo && <Pomodoro /> }
+        </div>    
+        <div id="center">
+          <HabitList 
+            habitList={ habitList }
+            setHabitList={ setHabitList }
+            />
+        </div>
+        <div id="right">
+          { showLofiBox && <Lofibox /> }
+        </div>
+      </main>
 
-      <div id="bottom-padding" />
-      <Footer />
+        <div id="bottom-padding" />
+        <Footer />
     </div>
   )
 }

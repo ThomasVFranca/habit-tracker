@@ -2,35 +2,48 @@
 /* ---------------------------------- pomo-container ---------------------------------- */
 
 .pomo-container {
-    background-color: aliceblue;
-    user-select: none;
-    border: 1px solid black;
-    border-radius: 3px;
-    width: 250px;
-    height: 140px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 5px;
-    position: relative;
-    box-shadow: 2px 2px 3px silver;
-  }
+  background-color: aliceblue;
+  user-select: none;
+  border: 1px solid grey;
+  border-radius: 3px;
+  width: 250px;
+  height: 140px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5px;
+  position: relative;
+  box-shadow: 2px 2px 3px silver;
+}
 
-  .pomo-container > h3 {
-    width: 99%;
-    border-width: 1px;
-    /* background-color: aqua; */
-    margin: 12px auto 6px;
-    text-align: center;
-  }
+.pomo-container:hover {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
 
-  .pomo-container > hr {
-    width: 99%;
-    border-width: 1px;
-    margin: 0px;
-    border-color: silver;
-  }
+.pomo-container:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.pomo-container > h3 {
+  width: 99%;
+  border-width: 1px;
+  /* background-color: aqua; */
+  margin: 12px auto 6px;
+  text-align: center;
+}
+
+.pomo-container > hr {
+  width: 99%;
+  border-width: 1px;
+  margin: 0px;
+  border-color: silver;
+}
 
 /* ---------------------------------- pomo-buttons ---------------------------------- */
 
@@ -57,6 +70,10 @@
     justify-content: center;
     border-radius: 20px;
     border: 0px;
+  }
+  
+  .pomo-container > div > button:hover {
+    cursor: pointer;
   }
   
   .pomo-container > div > button > img {
@@ -90,8 +107,8 @@
     background-color: aliceblue;
     color: black;
     border-radius: 20px;
-    width: 11px;
-    height: 11px;
+    width: 10px;
+    height: 10px;
   }
 
   .pomo-container > div > button:last-child > img:hover {

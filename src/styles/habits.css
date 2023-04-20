@@ -2,9 +2,9 @@
 
 .habit-forms {
   /* border-top: 1px solid black; */
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid grey;
   padding: 8px 0px;
-  box-shadow: 1px 1px 2px grey;
+  box-shadow: 0px 1px 2px silver;
   width: 100%;
   max-height: 30px;
   margin: 0px auto 16px;
@@ -42,7 +42,7 @@
 
 .habit-card-container {
   margin: 10px auto 120px;
-  border: 1px solid black;
+  border: 1px solid grey;
   border-radius: 3px;
   box-shadow: 1px 1px 5px grey;
   padding: 0px 0px 10px;
@@ -84,7 +84,7 @@
 }
 
 .habit-card {
-  border: 1px solid black;
+  border: 1px solid grey;
   box-shadow: 1px 1px 3px grey;
   width: 480px;
   height: 85px;
@@ -96,6 +96,20 @@
   user-select: none;
   background-color: aliceblue;
 }
+
+.habit-card:hover {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.habit-card:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
 
 .habit-title {
   /* border: 1px solid black; */
@@ -116,14 +130,14 @@
   rotate: -2deg;
   text-align: center;
   /* width: 20px;
-  height: 20px; */
+  height: 20px; */  
   font-size: 12px;
   height: 16px;
   width: 22px;
   border: 1px dashed darkolivegreen;
   border-radius: 3px;
   border-radius: 12px 0px;
-  margin: calc(1.1px);
+  margin: calc(1.3px);
 }
 
 .done-day {
@@ -131,6 +145,7 @@
   border: 1px solid darkolivegreen;
   color: whitesmoke;
   font-size: small;
+  margin: calc(1.3px);
 }
 /* ------------------------------------- habit-buttons ------------------------------------- */
 
