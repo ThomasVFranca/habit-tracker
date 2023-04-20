@@ -49,6 +49,8 @@ export default function NavBar({ setShowPomo, setShowTaskList, setShowLofiBox}) 
     } else {
       setShowLofiBox(true);
       setLocalShowLofiBox(true);
+
+      // setTimeout(() => $(`.lofi-box`).show('drop', {}, 800), 500);
     }
   }
   

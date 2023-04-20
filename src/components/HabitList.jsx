@@ -7,17 +7,18 @@ export default function HabitList({
   habitList,
   setHabitList,
 }) {
+
   const [date, setDate] = useState('0');
   const [habitInput, setHabitInput] = useState('');
+  const [disableAddButton, setDisableAddButton] = useState(true);
 
   useEffect(() => {
     const recoveredHabitList = localStorage?.getItem('habitList');
     recoveredHabitList !== null && setHabitList(JSON.parse(recoveredHabitList));
-    // $('.habit-card').effect('slide', {}, 1000);
     $(".habit-card-box" ).sortable();
 
     const currentYear = new Date().getFullYear();
-    const currentMonth = new Date().getMonth();
+    const currentMonth = new Date().getMonth() + 1;
     const currentDay = new Date().getDate();
 
     const currentDate = `${currentDay}/${currentMonth}/${currentYear}`
@@ -27,22 +28,28 @@ export default function HabitList({
   }, [setHabitList])
 
   const handleInput = ({ target: { value } }) => {
+    value.length > 1 && setDisableAddButton(false);
     setHabitInput(value);
   }
 
   const addHabit = (event) => {
     event.preventDefault();
+    // setTimeout(() => $('.habit-card').effect('slide', {}, 1000), 500);
 
     let newHabit = {
       habit: habitInput,
       dayCount: 0,
     }
 
-    const updatedHabitList = [...habitList, newHabit] 
-
-    setHabitList(updatedHabitList);
-    localStorage.setItem('habitList', JSON.stringify(updatedHabitList));
-
+    const updatedHabitList = [...habitList, newHabit]
+  
+    if (JSON.stringify(habitList).includes(habitInput)) {
+      console.log('hábito já existe');
+    } else {
+      setHabitList(updatedHabitList);
+      localStorage.setItem('habitList', JSON.stringify(updatedHabitList));
+    }
+    
     setHabitInput('');
   }
 
@@ -65,6 +72,7 @@ export default function HabitList({
             onChange={ handleInput }
           />
           <button
+            disabled={ disableAddButton }
             onClick={ addHabit }
             className="add-habit-button"
           >
@@ -77,7 +85,8 @@ export default function HabitList({
         { habitList.map(({ habit, dayCount }, index) => ((
         <HabitCard
           habit={ habit }
-          key={ index }
+          key={ index+habit }
+          cardKey={ index+habit }
           habitList={ habitList }
           setHabitList={ setHabitList }
           dayCount={ dayCount }

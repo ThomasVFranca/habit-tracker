@@ -3,18 +3,13 @@ import { days } from '../helpers/dayList';
 import addLogo from '../images/add-plus-circle-svgrepo-com.svg';
 import restartLogo from '../images/power-cycle-svgrepo-com.svg';
 import removeLogo from '../images/remove-circle-svgrepo-com.svg';
-// import $ from 'jquery';
+import $ from 'jquery';
 
 export default class HabitCard extends Component {
   state = {
     dayCount: this.props.dayCount,
     workHabit: '',
   }
-
-  componentDidMount() {
-    // $( ".habit-card" ).draggable({ axis: "y" });
-  };
-
 
   addDay = () => {
     const { habit } = this.props;
@@ -54,22 +49,27 @@ export default class HabitCard extends Component {
   }
 
 
-  removeHabit = ({ target: { name } }) => {
-    const { habitList, setHabitList } = this.props;
+  removeHabit = ({target,  target: { name } }) => {
+    const { habitList, setHabitList, cardKey } = this.props;
     const newHabitList = habitList.filter(({ habit }) => habit !== name);
-
-    setHabitList(newHabitList);
-    localStorage.setItem('habitList', JSON.stringify(newHabitList));
-  }
     
+    $(`#habit-${cardKey}`).hide('scale', { percent: 0 }, 750);
+
+    setTimeout(() => {
+      setHabitList(newHabitList)
+      localStorage.setItem('habitList', JSON.stringify(newHabitList))
+    }, 700);
+  }
+
+  
   render() {
     const { addDay, restartDays, removeHabit } = this;
-    const { habit, index } = this.props;
+    const { habit, index, cardKey } = this.props;
     const { dayCount } = this.state;
   return (
     <div>
       <div
-        id='habit-card'
+        id={ `habit-${cardKey}` }
         className="habit-card"
         key={ index }
       >
@@ -106,7 +106,7 @@ export default class HabitCard extends Component {
           className='delete-button habit-button'
           onClick={ removeHabit }
         >
-          <img src={ removeLogo } alt='remove-icon'/>
+          <img name={ habit } src={ removeLogo } alt='remove-icon'/>
         </button>
       </div>
     </div>
